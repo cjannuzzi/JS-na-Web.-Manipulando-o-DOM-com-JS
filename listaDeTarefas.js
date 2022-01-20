@@ -2,16 +2,19 @@ const criarTarefa = (evento) => {
 
     evento.preventDefault()
 
+
+    const lista = document.querySelector('[data-list]')
     const input = document.querySelector('[data-form-input]')
     const valor = input.value
 
+    const tarefa = document.createElement('li')
+    tarefa.classList.add('task')
     
-   const tarefa = document.querySelector('[data-task]')
+    const conteudo = `<p class="content">${valor}</p>`
 
-   const conteudo = `<p class="content">${valor}</p>`
-
-   tarefa.innerHTML = conteudo
-   input.value = " "
+    tarefa.innerHTML = conteudo
+    lista.appendChild(tarefa)
+    input.value = " "
 }
 
 const novaTarefa = document.querySelector('[data-form-button]')
